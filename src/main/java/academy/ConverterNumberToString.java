@@ -10,17 +10,17 @@ public class ConverterNumberToString {
 
     public static void main(String[] args) {
         do {
-            ConsoleIO.printToConsole(startProgram);
+            ConsoleIO.printToConsole(START_PROGRAM);
             long data = 0;
             try {
                 data = Long.parseLong(ConsoleIO.enterNumber());
             } catch (NumberFormatException e) {
-                ConsoleIO.printToConsole(informError);
+                ConsoleIO.printToConsole(INFORM_INVALID);
             }
             NumberToString numberToString = new NumberToString(data);
             String numberInWords = numberToString.getNumberToString();
             ConsoleIO.printToConsole(numberInWords);
-            ConsoleIO.printToConsole(continueProgram);
+            ConsoleIO.printToConsole(CONTINUE_PROGRAM);
         } while (ConsoleIO.isContinue());
         ConsoleIO.closeScanner();
     }
