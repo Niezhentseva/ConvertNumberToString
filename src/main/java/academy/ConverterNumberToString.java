@@ -1,5 +1,4 @@
-/* Task 5
-5.	Число в пропись
+/* 5.	Число в пропись
 Нужно преобразовать целое число в прописной вариант: 12 – двенадцать.
 Программа запускается через вызов главного класса с параметрами.
  */
@@ -10,17 +9,17 @@ import static academy.InformConstant.*;
 public class ConverterNumberToString {
 
     public static void main(String[] args) {
-
         do {
             ConsoleIO.printToConsole(startProgram);
+            long data = 0;
             try {
-                long data = Long.parseLong(ConsoleIO.enterNumber());
-                NumberToString numberToString = new NumberToString(data);
-                String numberInWords = numberToString.getNumberToString();
-                ConsoleIO.printToConsole(numberInWords);
+                data = Long.parseLong(ConsoleIO.enterNumber());
             } catch (NumberFormatException e) {
                 ConsoleIO.printToConsole(informError);
             }
+            NumberToString numberToString = new NumberToString(data);
+            String numberInWords = numberToString.getNumberToString();
+            ConsoleIO.printToConsole(numberInWords);
             ConsoleIO.printToConsole(continueProgram);
         } while (ConsoleIO.isContinue());
         ConsoleIO.closeScanner();

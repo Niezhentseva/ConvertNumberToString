@@ -73,7 +73,7 @@ public class NumberToString {
     }
 
     private String convert(long number) {
-        if((number >= ONE_TRILLION) || (number <= -ONE_TRILLION)){
+        if ((number >= ONE_TRILLION) || (number <= -ONE_TRILLION)) {
             return "This number is not supported";
         } else if (number < 0) {
             numberToString = "минус " + convert(Math.abs(number));
@@ -115,12 +115,10 @@ public class NumberToString {
             return "";
         } else if (str.endsWith("один")) {
             return str.replace("один", "одна тысяча");
+        } else if (str.endsWith("двадцать два")) {
+            return str.replace("двадцать два", "двадцать две тысячи");
         } else if (str.endsWith("два")) {
-            if (str.endsWith("двадцать два")) {
-                return str.replace("двадцать два", "двадцать две тысячи");
-            } else {
-                return str.replace("два", "две тысячи");
-            }
+            return str.replace("два", "две тысячи");
         } else if (str.endsWith("три") || str.endsWith("четыре")) {
             return str + " тысячи";
         } else {
