@@ -4,22 +4,24 @@
  */
 package academy;
 
-import static academy.InformConstant.*;
-
 public class ConverterNumberToString {
+    private final static String START_PROGRAM = "Enter a number from " +
+            "-999 999 999 999 to 999 999 999 999 without whitespaces";
+    private final static String CONTINUE_PROGRAM = "Do you want to continue? (y/yes or n/no)";
+    private final static String INFORM_INVALID = "Invalid input number.  Enter a number from " +
+            "-999 999 999 999 to 999 999 999 999 without whitespaces";
 
     public static void main(String[] args) {
         do {
             ConsoleIO.printToConsole(START_PROGRAM);
-            long data = 0;
             try {
-                data = Long.parseLong(ConsoleIO.enterNumber());
+               long data = Long.parseLong(ConsoleIO.enterNumber());
+                NumberToString numberToString = new NumberToString(data);
+                String numberInWords = numberToString.getNumberToString();
+                ConsoleIO.printToConsole(numberInWords);
             } catch (NumberFormatException e) {
                 ConsoleIO.printToConsole(INFORM_INVALID);
             }
-            NumberToString numberToString = new NumberToString(data);
-            String numberInWords = numberToString.getNumberToString();
-            ConsoleIO.printToConsole(numberInWords);
             ConsoleIO.printToConsole(CONTINUE_PROGRAM);
         } while (ConsoleIO.isContinue());
         ConsoleIO.closeScanner();
